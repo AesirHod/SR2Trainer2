@@ -1,0 +1,7 @@
+﻿  Process.cpp
+c:\users\andrew\documents\visual studio 2015\projects\sr2trainer2\sr2trainer2\process.cpp(194): warning C4477: 'sscanf' : format string '%02x' requires an argument of type 'unsigned int *', but variadic argument 1 has type 'u_char *'
+  c:\users\andrew\documents\visual studio 2015\projects\sr2trainer2\sr2trainer2\process.cpp(194): note: consider using '%hhx' in the format string
+  SR2Trainer2.cpp
+  Generating Code...
+  SR2Trainer2.vcxproj -> C:\Users\Andrew\Documents\Visual Studio 2015\Projects\SR2Trainer2\Debug\SR2Trainer2.exe
+  SR2Trainer2.vcxproj -> C:\Users\Andrew\Documents\Visual Studio 2015\Projects\SR2Trainer2\Debug\SR2Trainer2.pdb (Full PDB)

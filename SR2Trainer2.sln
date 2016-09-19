@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual C++ Express 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SR2Trainer2", "SR2Trainer2\SR2Trainer2.vcxproj", "{60A05C26-87A7-4C48-A508-12D08C02B931}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{60A05C26-87A7-4C48-A508-12D08C02B931}.Debug|Win32.ActiveCfg = Debug|Win32
+		{60A05C26-87A7-4C48-A508-12D08C02B931}.Debug|Win32.Build.0 = Debug|Win32
+		{60A05C26-87A7-4C48-A508-12D08C02B931}.Release|Win32.ActiveCfg = Release|Win32
+		{60A05C26-87A7-4C48-A508-12D08C02B931}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
