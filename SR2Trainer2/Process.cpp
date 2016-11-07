@@ -120,6 +120,12 @@ BOOL CProcess::Write(u_int pxAddress, TData* pxData, u_int uSize)
 		return false;
 	}
 
+	BOOL uResult = FALSE;
+	DWORD uOldProtect = 0;
+	VirtualProtectEx(m_hProcess, (LPVOID)pxAddress, uSize, PAGE_EXECUTE_READWRITE, &uOldProtect);
+	uResult = WriteProcessMemory(m_hProcess, (void*)pxAddress, (void*)pxData, (u_long)uSize * sizeof(pxData[0]), &m_ulBytesWritten);
+	VirtualProtectEx(m_hProcess, (LPVOID)pxAddress, uSize, uOldProtect, 0);
+
 	return WriteProcessMemory(m_hProcess,(void*)pxAddress,(void*)pxData,(u_long)uSize*sizeof(pxData[0]),&m_ulBytesWritten);
 }
 

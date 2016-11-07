@@ -655,7 +655,7 @@ void SR2Trainer2::DebugOn()
 			// Rotation speed
 			s_xProcess.Write(0x004E389C, 48.0f);
 
-			/*
+			
 
 			// Water Reaver FX set
 			u_int uWaterReaverEffectSet = s_uMemTracker;
@@ -666,6 +666,9 @@ void SR2Trainer2::DebugOn()
 			// Insert "20 01 00 00 0E 06 00 00" at byte 8 for lightning bolt.
 			s_xProcess.WriteXString(s_uMemTracker, "20 01 00 00 1A 00 00 00 20 01 00 00 25 08 00 00 20 01 00 00 25 09 00 00 20 01 00 00 25 0A 00 00 20 01 00 00 25 0B 00 00 20 01 00 00 25 0C 00 00 20 01 00 00 25 0D 00 00 00 FF 00 00");
 			s_uMemTracker += s_xProcess.SizeOfLast();
+
+			// Earth Reaver trail colour
+			//s_xProcess.Write(0x05791A44, 0x800E4824u);
 
 			// CustomGFXO
 			u_int uCustomGFXO = s_uMemTracker;
@@ -702,13 +705,13 @@ void SR2Trainer2::DebugOn()
 			//                                      00                                              10                                              20          24                                  30                                              40                                              50                                              60                                              70
 
 			// Earth Reaver FX #1
-			s_xProcess.WriteXString(s_uMemTracker, "22 00 01 04 00 00 03 81 00 00 00 43 00 00 00 43 00 00 00 43 00 00 00 00 00 00 00 00 00 00 00 00 78 FF 37 80 78 FF 1E 80 04 00 00 00 FF FF 21 00 F6 03 00 00 00 00 00 00 00 00 00 10 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 04 00 00 00 08 81 00 01 0A D7 A3 3C 00 00 00 00 00 00 80 3F 03 01 81 00 00 00 00 80 00 00 FF 00 00 00 00 00");
+			s_xProcess.WriteXString(s_uMemTracker, "22 00 01 04 00 00 03 81 00 00 00 43 00 00 00 43 00 00 00 43 00 00 00 00 00 00 00 00 00 00 00 00 24 48 0E 80 24 48 0E 80 04 00 00 00 FF FF 21 00 F6 03 00 00 00 00 00 00 00 00 00 10 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 04 00 00 00 08 81 00 01 0A D7 A3 3C 00 00 00 00 00 00 80 3F 03 01 81 00 00 00 00 80 00 00 FF 00 00 00 00 00");
 			s_uMemTracker += s_xProcess.SizeOfLast();
 			// Earth Reaver FX #2
-			s_xProcess.WriteXString(s_uMemTracker, "28 00 01 00 05 00 03 81 00 00 00 00 00 00 00 00 00 00 A0 C0 00 00 00 00 00 00 00 00 00 00 00 00 14 FF 00 80 0A 80 00 80 10 01 01 00 FF FF 2D 00 FE 00 00 00 00 00 00 00 00 00 00 10 00 00 E9 03 00 00 00 00 00 00 00 00 00 00 00 00 06 00 03 00 14 00 00 00 81 81 00 01 00 00 00 00 00 00 00 00 00 00 80 3F 03 01 81 00 00 00 00 80 00 00 FF 00 00 00 00 00");
+			s_xProcess.WriteXString(s_uMemTracker, "28 00 01 00 05 00 03 81 00 00 00 00 00 00 00 00 00 00 A0 C0 00 00 00 00 00 00 00 00 00 00 00 00 24 48 0E 80 24 48 0E 80 10 01 01 00 FF FF 2D 00 FE 00 00 00 00 00 00 00 00 00 00 10 00 00 E9 03 00 00 00 00 00 00 00 00 00 00 00 00 06 00 03 00 14 00 00 00 81 81 00 01 00 00 00 00 00 00 00 00 00 00 80 3F 03 01 81 00 00 00 00 80 00 00 FF 00 00 00 00 00");
 			s_uMemTracker += s_xProcess.SizeOfLast();
 			// Earth Reaver FX #3
-			s_xProcess.WriteXString(s_uMemTracker, "11 00 01 00 06 00 03 81 00 00 00 00 00 00 00 00 00 00 C0 C0 00 00 00 00 00 00 00 00 00 00 00 00 64 FF 00 80 00 FF 00 80 02 01 01 00 FF FF 2D 00 FF 00 00 00 00 00 00 00 00 00 00 10 00 00 E9 03 00 00 00 00 00 00 00 00 00 00 00 00 03 00 01 00 08 00 00 00 81 81 00 01 00 00 00 00 00 00 00 00 00 00 80 3F 03 01 81 00 00 00 00 80 00 00 FF 00 00 00 00 00");
+			s_xProcess.WriteXString(s_uMemTracker, "11 00 01 00 06 00 03 81 00 00 00 00 00 00 00 00 00 00 C0 C0 00 00 00 00 00 00 00 00 00 00 00 00 24 48 0E 80 24 48 0E 80 02 01 01 00 FF FF 2D 00 FF 00 00 00 00 00 00 00 00 00 00 10 00 00 E9 03 00 00 00 00 00 00 00 00 00 00 00 00 03 00 01 00 08 00 00 00 81 81 00 01 00 00 00 00 00 00 00 00 00 00 80 3F 03 01 81 00 00 00 00 80 00 00 FF 00 00 00 00 00");
 			s_uMemTracker += s_xProcess.SizeOfLast();
 			// Earth Reaver FX #4
 			s_xProcess.WriteXString(s_uMemTracker, "14 00 01 00 14 00 20 81 00 00 00 00 00 00 00 00 00 00 80 C0 00 00 00 00 00 00 00 00 00 00 00 00 0D 20 07 80 07 0E 04 80 02 01 01 FF FF FF 14 00 01 00 00 00 00 00 00 00 00 00 00 10 00 01 E9 03 00 00 00 00 00 00 00 00 00 00 04 00 3C 00 07 00 02 00 00 00 81 81 00 01 00 00 00 00 00 00 00 00 00 00 80 3F 20 01 81 00 00 00 00 80 00 00 FF 00 00 00 00 00");
@@ -772,7 +775,7 @@ void SR2Trainer2::DebugOn()
 			s_xProcess.Write(s_uSReavr + 0x0100, uWaterReaverEffectSet);
 			s_xProcess.Write(s_uSReavr + 0x0104, uEarthReaverEffectSet);
 
-			*/
+			
 		}
 
 		s_xProcess.WriteXString(0x0049EA02, "E829010000");
