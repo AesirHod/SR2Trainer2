@@ -10,7 +10,8 @@
 
 enum ControlID
 {
-	SR2_DebugOn = 1, SR2_DbgOnKey, SR2_DebugOff, SR2_DbgOffKey,
+	SR2_DebugOn, SR2_DbgOnKey, SR2_DebugOff, SR2_DbgOffKey,
+	SR2_PassThroughOn, SR2_PassThroughOnKey, SR2_PassThroughOff, SR2_PassThroughOffKey,
 	SR2_SubWin,
 #ifdef SOUL_REAVER_FUNCTIONS
 	PM_SoulReaverObjects,
@@ -75,6 +76,8 @@ public:
 	static void WriteMem(HWND hWnd);
 	static void DebugOn();
 	static void DebugOff();
+	static void PassThroughOn();
+	static void PassThroughOff();
 
 	static HINSTANCE s_hInst;
 
@@ -91,6 +94,8 @@ public:
 	static SR_Combo s_axComboBoxes[];
 	static u_char SR2_DbgOn;
 	static u_char SR2_DbgOff;
+	static u_char SR2_PassOn;
+	static u_char SR2_PassOff;
 
 	static u_int s_uStandardMenu;
 	static u_int s_uRazielMenu;

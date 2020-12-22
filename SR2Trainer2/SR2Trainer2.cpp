@@ -26,15 +26,19 @@ SR_Key SR2Trainer2::s_axKeys[107];
 SR_Button SR2Trainer2::s_axButtons[] =
 {
 	{"Debug On", SR2_DebugOn},	{"Debug Off", SR2_DebugOff},
+	{"Pass Through On", SR2_PassThroughOn},	{"Pass Through Off", SR2_PassThroughOff},
 };
 
 SR_Combo SR2Trainer2::s_axComboBoxes[] =
 {
 	{SR2_DbgOnKey, VK_F11},	{SR2_DbgOffKey, VK_F12},
+	{SR2_PassThroughOnKey, VK_F9},	{SR2_PassThroughOffKey, VK_F10},
 };
 
 u_char SR2Trainer2::SR2_DbgOn = VK_F11;
 u_char SR2Trainer2::SR2_DbgOff = VK_F12;
+u_char SR2Trainer2::SR2_PassOn = VK_F9;
+u_char SR2Trainer2::SR2_PassOff = VK_F10;
 
 u_int SR2Trainer2::s_uStandardMenu = 0x00573810;
 u_int SR2Trainer2::s_uRazielMenu = 0x005735D0;
@@ -193,14 +197,24 @@ LRESULT APIENTRY SR2Trainer2::MemWindowProc(HWND hWnd, UINT msg, WPARAM wParam, 
 			{
 				case BN_CLICKED:
 				{
-					if ((LOWORD(wParam))==SR2_DebugOn)
+					if ((LOWORD(wParam)) == SR2_DebugOn)
 					{
 						DebugOn();
 					}
 
-					if ((LOWORD(wParam))==SR2_DebugOff)
+					if ((LOWORD(wParam)) == SR2_DebugOff)
 					{
 						DebugOff();
+					}
+
+					if ((LOWORD(wParam)) == SR2_PassThroughOn)
+					{
+						PassThroughOn();
+					}
+
+					if ((LOWORD(wParam)) == SR2_PassThroughOff)
+					{
+						PassThroughOff();
 					}
 
 					break;
@@ -360,9 +374,9 @@ void SR2Trainer2::CreateMemWindow(HWND hParent, int x, int y, int w, int h)
 		x, y, w, h, hParent, (HMENU) SR2_SubWin, s_hInst, 0
 	);
 
-	CreateButtonCol(s_axButtons, s_hMemWin, 2, 50, 30, 100, 20);
+	CreateButtonCol(s_axButtons, s_hMemWin, 4, 50, 30, 100, 20);
 	CreateKeyStrings();
-	CreateComboCol(s_axComboBoxes, s_hMemWin, 2, 180, 30, 100, 200);
+	CreateComboCol(s_axComboBoxes, s_hMemWin, 4, 180, 30, 100, 200);
 
 #ifdef SOUL_REAVER_FUNCTIONS
 	CreateSRObjectList(PM_SoulReaverObjects, s_hMemWin, 432, 10, 160, 200);
@@ -468,6 +482,18 @@ void SR2Trainer2::WriteMem(HWND hWnd)
 	if (s_xProcess.IsKeyPressed(SR2_DbgOff))
 	{
 		DebugOff();
+	}
+
+	// Pass Through On
+	if (s_xProcess.IsKeyPressed(SR2_PassOn))
+	{
+		PassThroughOn();
+	}
+
+	// Pass Through Off
+	if (s_xProcess.IsKeyPressed(SR2_PassOff))
+	{
+		PassThroughOff();
 	}
 }
 
@@ -786,6 +812,22 @@ void SR2Trainer2::DebugOn()
 
 		// Short Short Stats 0x04000000 = Short not "short-short" stats.
 		// Short Short Stats 0x00000020 = Sound debug output.
+	}
+}
+
+void SR2Trainer2::PassThroughOn()
+{
+	if (SetUpProcess())
+	{
+		s_xProcess.WriteXString(0x0041F380, "C39090");
+	}
+}
+
+void SR2Trainer2::PassThroughOff()
+{
+	if (SetUpProcess())
+	{
+		s_xProcess.WriteXString(0x0041F380, "83EC10");
 	}
 }
 
